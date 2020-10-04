@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/utilities/c.dart';
-import 'package:flutter_app/Login/MultiSelectionExample.dart';
-import 'package:flutter_app/Login/Movie.dart';
-import 'package:flutter_app/Login/WaitingScreen.dart';
+import 'package:flutter_app/Screens/MultiSelectionExample.dart';
+import 'package:flutter_app/Screens/Movie.dart';
+import 'package:flutter_app/Screens/COVIDScreen.dart';
 
 class SelectScreen extends StatefulWidget {
 
@@ -47,7 +47,7 @@ class _SelectScreenState extends State<SelectScreen> {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return WaitingScreen();
+                return COVIDScreen();
               },
             ),
           );
@@ -99,6 +99,16 @@ class _SelectScreenState extends State<SelectScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      Text(
+                        'Hi David, \nWelcome!',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'OpenSans',
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 70.0),
                       Text(
                         'Select the service you need today:',
                         style: TextStyle(

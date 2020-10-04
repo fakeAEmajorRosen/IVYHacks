@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Login/Movie.dart';
+import 'package:flutter_app/Screens/Movie.dart';
 
 class MultiSelectionExample extends StatefulWidget {
   List<Movie> favoriteMovies;

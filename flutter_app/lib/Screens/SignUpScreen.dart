@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/utilities/c.dart';
-import 'package:flutter_app/Login/SelectScreen.dart';
+import 'package:flutter_app/Screens/SelectScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override

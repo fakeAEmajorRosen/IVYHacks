@@ -11,19 +11,37 @@ class WaitingScreen extends StatefulWidget {
 class _WaitingScreenState extends State<WaitingScreen> {
   bool paired = false;
 
+  // @override
+  // moveon() {
+  //   Navigator.pushReplacement(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) {
+  //         return DriverFoundScreen();
+  //       },
+  //     ),
+  //   );
+  // }
+
+  //////////////////////////////// time_lapse ////////////
   @override
-  moveon() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return DriverFoundScreen();
-        },
-      ),
-    );
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    startTime();
   }
 
-
+  startTime() async {
+    var duration = new Duration(seconds: 6);
+    return new Timer(duration, route);
+  }
+  route() {
+    Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (context) => DriverFoundScreen()
+    )
+    );
+  }
+/////////////////////////////////////////////////////////////
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +88,8 @@ class _WaitingScreenState extends State<WaitingScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      if (paired == true)
-                        moveon(),
+                      // if (paired == true)
+                      //   initState(),
                     ],
                   ),
                 ),

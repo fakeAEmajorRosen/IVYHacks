@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/utilities/c.dart';
 import 'package:flutter_app/Screens/MultiSelectionExample.dart';
-import 'package:flutter_app/Screens/Movie.dart';
+import 'package:flutter_app/Screens/Service.dart';
 import 'package:flutter_app/Screens/COVIDScreen.dart';
 
 class SelectScreen extends StatefulWidget {
@@ -20,18 +20,18 @@ class _SelectScreenState extends State<SelectScreen> {
     'Sort by Recently added'
   ];
 
-  List<Movie> favoriteMovies = [
-    Movie('Non-Emergency \nTransportation'),
-    Movie('Basic & Advanced \nLife Support Ambulance'),
-    Movie('9-1-1 Emergency Ambulance'),
-    Movie('Specialty Care Transport'),
-    Movie('Air Medical Transport')
+  List<Service> Services = [
+    Service('Non-Emergency \nTransportation'),
+    Service('Basic & Advanced \nLife Support Ambulance'),
+    Service('9-1-1 Emergency Ambulance'),
+    Service('Specialty Care Transport'),
+    Service('Air Medical Transport')
   ];
 
   Widget _buildCheckbox() {
     return Container(
       height: 400.0,
-      child: MultiSelectionExample(favoriteMovies),
+      child: MultiSelectionExample(Services),
     );
   }
 

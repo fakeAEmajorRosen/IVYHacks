@@ -1,15 +1,14 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/Screens/EndScreen.dart';
-class MapScreen extends StatefulWidget {
-  @override
-  _MapScreenState createState() => _MapScreenState();
+import 'dart:async';
+import 'package:my_app/screens/home/MapScreen.dart';
 
+class DriverFoundScreen extends StatefulWidget {
+  @override
+  _DriverFoundScreenState createState() => _DriverFoundScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
-
+class _DriverFoundScreenState extends State<DriverFoundScreen> {
   //////////////////////////////// time_lapse ////////////
   @override
   void initState() {
@@ -19,14 +18,13 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 8);
+    var duration = new Duration(seconds: 10);
     return new Timer(duration, route);
   }
+
   route() {
-    Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => EndScreen()
-    )
-    );
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => MapScreen()));
   }
 /////////////////////////////////////////////////////////////
 
@@ -69,8 +67,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                 ),
                 TextSpan(text: 'Phone'),
-              ]
-          ),
+              ]),
         ),
       ),
     );
@@ -111,12 +108,11 @@ class _MapScreenState extends State<MapScreen> {
                 WidgetSpan(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: Icon(Icons.video_call, color:Colors.white),
+                    child: Icon(Icons.video_call, color: Colors.white),
                   ),
                 ),
                 TextSpan(text: 'Video Call'),
-              ]
-          ),
+              ]),
         ),
       ),
     );
@@ -150,7 +146,7 @@ class _MapScreenState extends State<MapScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Susan is on the way!',
+                        'Driver Found!\nSusan will be your driver!',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
@@ -158,14 +154,41 @@ class _MapScreenState extends State<MapScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 380.0),
+                      SizedBox(height: 30.0),
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 25.0),
+                        width: 200.0,
+                        height: 200.0,
+
+                        // width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFD6D6D6),
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Colors.purple,
+                            width: 2,
+                          ),
+                          // borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      SizedBox(height: 10.0),
+                      Container(
+                        child: Text(
+                          'Susan',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            letterSpacing: 1.5,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'OpenSans',
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.0),
                       _buildPhoneBtn(),
-                      _buildVideoBtn()
-
-
-
-
-
+                      SizedBox(height: 3.0),
+                      _buildVideoBtn(),
                     ],
                   ),
                 ),

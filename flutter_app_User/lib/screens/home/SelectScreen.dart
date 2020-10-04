@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/utilities/c.dart';
-import 'package:flutter_app/Screens/MultiSelectionExample.dart';
-import 'package:flutter_app/Screens/Service.dart';
-import 'package:flutter_app/Screens/COVIDScreen.dart';
+import 'package:my_app/screens/home/MultiSelectionExample.dart';
+import 'package:my_app/screens/home/Service.dart';
+import 'package:my_app/screens/home/COVIDScreen.dart';
 
 class SelectScreen extends StatefulWidget {
-
   @override
   _SelectScreenState createState() => _SelectScreenState();
-
 }
 
 class _SelectScreenState extends State<SelectScreen> {
@@ -23,8 +20,8 @@ class _SelectScreenState extends State<SelectScreen> {
   List<Service> Services = [
     Service('Non-Emergency \nTransportation'),
     Service('Basic & Advanced \nLife Support Ambulance'),
-    Service('9-1-1 Emergency Ambulance'),
-    Service('Specialty Care Transport'),
+    Service('9-1-1 Emergency \nAmbulance'),
+    Service('Specialty Care \nTransport'),
     Service('Air Medical Transport')
   ];
 
@@ -70,7 +67,6 @@ class _SelectScreenState extends State<SelectScreen> {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +138,4 @@ class _SelectScreenState extends State<SelectScreen> {
       ),
     );
   }
-
-
-
 }

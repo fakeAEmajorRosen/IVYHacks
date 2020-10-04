@@ -1,17 +1,14 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:async';
-import 'package:flutter_app/Screens/MapScreen.dart';
+import 'package:my_app/screens/home/EndScreen.dart';
 
-class DriverFoundScreen extends StatefulWidget {
+class MapScreen extends StatefulWidget {
   @override
-  _DriverFoundScreenState createState() => _DriverFoundScreenState();
-
+  _MapScreenState createState() => _MapScreenState();
 }
 
-class _DriverFoundScreenState extends State<DriverFoundScreen> {
-
-
+class _MapScreenState extends State<MapScreen> {
   //////////////////////////////// time_lapse ////////////
   @override
   void initState() {
@@ -21,17 +18,15 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 2);
+    var duration = new Duration(seconds: 8);
     return new Timer(duration, route);
   }
+
   route() {
-    Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => MapScreen()
-    )
-    );
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => EndScreen()));
   }
 /////////////////////////////////////////////////////////////
-
 
   Widget _buildPhoneBtn() {
     return Container(
@@ -57,23 +52,22 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
         color: Color(0xFFF3E5F5),
         child: RichText(
           text: TextSpan(
-            style: TextStyle(
-              color: Colors.black,
-              letterSpacing: 1.5,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'OpenSans',
-            ),
-            children: [
-              WidgetSpan(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                  child: Icon(Icons.phone),
-                ),
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 1.5,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'OpenSans',
               ),
-              TextSpan(text: 'Phone'),
-            ]
-          ),
+              children: [
+                WidgetSpan(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    child: Icon(Icons.phone),
+                  ),
+                ),
+                TextSpan(text: 'Phone'),
+              ]),
         ),
       ),
     );
@@ -114,27 +108,15 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
                 WidgetSpan(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: Icon(Icons.video_call, color:Colors.white),
+                    child: Icon(Icons.video_call, color: Colors.white),
                   ),
                 ),
                 TextSpan(text: 'Video Call'),
-              ]
-          ),
+              ]),
         ),
       ),
     );
   }
-
-
-  // Widget _buildDriverProfile() {
-  //   return Container(
-  //       padding: EdgeInsets.symmetric(vertical: 25.0),
-  //       width: double.infinity,
-  //       child:
-  //   );
-  // }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +146,7 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Driver Found!\nSusan will be your driver!',
+                        'Susan is on the way!',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
@@ -172,45 +154,9 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 30.0),
-                      Container(
-                        padding: EdgeInsets.symmetric(vertical: 25.0),
-                          width: 200.0,
-                          height: 200.0,
-
-                          // width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFD6D6D6),
-                              shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.purple,
-                              width: 2,
-                            ),
-                            // borderRadius: BorderRadius.circular(20),
-                          ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Container(
-                        child: Text(
-                          'Susan',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            letterSpacing: 1.5,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'OpenSans',
-
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
+                      SizedBox(height: 380.0),
                       _buildPhoneBtn(),
-                      SizedBox(height: 3.0),
-                      _buildVideoBtn(),
-
-
-
+                      _buildVideoBtn()
                     ],
                   ),
                 ),
@@ -221,5 +167,4 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
       ),
     );
   }
-
 }

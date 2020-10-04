@@ -1,47 +1,51 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/Screens/DriverFoundScreen.dart';
-class WaitingScreen extends StatefulWidget {
-  @override
-  _WaitingScreenState createState() => _WaitingScreenState();
+import 'package:my_app/screens/home/SelectScreen.dart';
+import 'package:my_app/services/auth.dart';
 
+class EndScreen extends StatefulWidget {
+  @override
+  _EndScreenState createState() => _EndScreenState();
 }
 
-class _WaitingScreenState extends State<WaitingScreen> {
-  bool paired = false;
-
-  // @override
-  // moveon() {
-  //   Navigator.pushReplacement(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: (context) {
-  //         return DriverFoundScreen();
-  //       },
-  //     ),
-  //   );
-  // }
-
-  //////////////////////////////// time_lapse ////////////
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    startTime();
-  }
-
-  startTime() async {
-    var duration = new Duration(seconds: 5);
-    return new Timer(duration, route);
-  }
-  route() {
-    Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => DriverFoundScreen()
-    )
+class _EndScreenState extends State<EndScreen> {
+  final AuthService _auth = AuthService();
+  Widget _buildDoneBtn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: double.infinity,
+      child: RaisedButton(
+        elevation: 5.0,
+        // onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return SelectScreen();
+              },
+            ),
+          );
+        },
+        padding: EdgeInsets.all(15.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        color: Colors.purple,
+        child: Text(
+          'Done!',
+          style: TextStyle(
+            color: Colors.white,
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
     );
   }
-/////////////////////////////////////////////////////////////
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +68,13 @@ class _WaitingScreenState extends State<WaitingScreen> {
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 70.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Thank you!',
+                        'Thank you for using our service!',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
@@ -79,17 +83,7 @@ class _WaitingScreenState extends State<WaitingScreen> {
                         ),
                       ),
                       SizedBox(height: 200.0),
-                      Text(
-                        'We are paring you up with the driver...',
-                        style: TextStyle(
-                          color: Colors.purple,
-                          fontFamily: 'OpenSans',
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      // if (paired == true)
-                      //   initState(),
+                      _buildDoneBtn(),
                     ],
                   ),
                 ),
@@ -98,10 +92,13 @@ class _WaitingScreenState extends State<WaitingScreen> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () async {
+          await _auth.signOut();
+        },
+        label: Text('Sign Out'),
+        icon: Icon(Icons.logout),
+      ),
     );
   }
-
-
-
 }
-

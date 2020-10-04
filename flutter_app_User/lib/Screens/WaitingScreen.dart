@@ -32,7 +32,7 @@ class _WaitingScreenState extends State<WaitingScreen> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 15);
+    var duration = new Duration(seconds: 5);
     return new Timer(duration, route);
   }
   route() {

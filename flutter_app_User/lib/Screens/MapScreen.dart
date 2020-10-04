@@ -19,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 15);
+    var duration = new Duration(seconds: 8);
     return new Timer(duration, route);
   }
   route() {
@@ -158,9 +158,8 @@ class _MapScreenState extends State<MapScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 100.0),
+                      SizedBox(height: 380.0),
                       _buildPhoneBtn(),
-                      SizedBox(height: 3.0),
                       _buildVideoBtn()
 
 

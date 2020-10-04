@@ -21,7 +21,7 @@ class _DriverFoundScreenState extends State<DriverFoundScreen> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 15);
+    var duration = new Duration(seconds: 2);
     return new Timer(duration, route);
   }
   route() {

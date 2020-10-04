@@ -1,6 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:flutter_app/Screens/DriverFoundScreen.dart';
 class WaitingScreen extends StatefulWidget {
   @override
   _WaitingScreenState createState() => _WaitingScreenState();
@@ -8,6 +9,19 @@ class WaitingScreen extends StatefulWidget {
 }
 
 class _WaitingScreenState extends State<WaitingScreen> {
+  bool paired = false;
+
+  @override
+  moveon() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return DriverFoundScreen();
+        },
+      ),
+    );
+  }
 
 
   @override
@@ -56,7 +70,8 @@ class _WaitingScreenState extends State<WaitingScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
+                      if (paired == true)
+                        moveon(),
                     ],
                   ),
                 ),
@@ -67,6 +82,8 @@ class _WaitingScreenState extends State<WaitingScreen> {
       ),
     );
   }
+
+
 
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/utilities/c.dart';
-
+import 'package:flutter_app/Login/SelectScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -222,6 +222,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+  Widget _buildSubmitbtn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: double.infinity,
+      child: RaisedButton(
+        elevation: 5.0,
+        // onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return SelectScreen();
+              },
+            ),
+          );
+        },
+        padding: EdgeInsets.all(15.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        color: Colors.purple,
+        child: Text(
+          'SUBMIT',
+          style: TextStyle(
+            color: Colors.white,
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -271,6 +306,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       _buildEmailTF(),
                       SizedBox(height: 10.0),
                       _buildHospitalTF(),
+                      SizedBox(height: 15.0),
+                      _buildSubmitbtn(),
 
 
                       SizedBox(

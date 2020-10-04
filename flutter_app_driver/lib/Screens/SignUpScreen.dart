@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/utilities/c.dart';
-import 'package:flutter_app/Screens/SelectScreen.dart';
+import 'package:flutter_app_driver/utilities/c.dart';
+import 'package:flutter_app_driver/Screens/SelectScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -82,6 +82,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+  Widget _buildAmbulanceTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Ambulance Number',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.directions_car_sharp,
+                color: Colors.black,
+              ),
+              hintText: 'Enter your Ambulance Number',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildLegalNameTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,7 +140,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-                Icons.drive_file_rename_outline,
+                Icons.directions_car_sharp,
                 color: Colors.black,
               ),
               hintText: 'Enter your Legal Name',
@@ -213,7 +248,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Icons.local_hospital,
                 color: Colors.black,
               ),
-              hintText: 'Enter your Preferred Hospital',
+              hintText: 'Enter your Destination Hospital',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -304,6 +339,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       _buildPhoneTF(),
                       SizedBox(height: 10.0),
                       _buildEmailTF(),
+                      SizedBox(height: 10.0),
+                      _buildAmbulanceTF(),
                       SizedBox(height: 10.0),
                       _buildHospitalTF(),
                       SizedBox(height: 15.0),

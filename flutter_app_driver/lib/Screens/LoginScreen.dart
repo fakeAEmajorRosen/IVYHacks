@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/utilities/c.dart';
-import 'package:flutter_app/Screens/SelectScreen.dart';
-import 'package:flutter_app/Screens/SignUpScreen.dart';
+import 'package:flutter_app_driver/utilities/c.dart';
+import 'package:flutter_app_driver/Screens/SelectScreen.dart';
+import 'package:flutter_app_driver/Screens/SignUpScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -224,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Welcome!\n\n  Sign In:',
+                        'Welcome, Drivers!\n\n        Sign In:',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',

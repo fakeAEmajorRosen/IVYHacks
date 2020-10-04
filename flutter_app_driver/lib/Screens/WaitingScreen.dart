@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/Screens/DriverFoundScreen.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_app_driver/Screens/DriverFoundScreen.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 class WaitingScreen extends StatefulWidget {
   @override
   _WaitingScreenState createState() => _WaitingScreenState();
@@ -92,9 +92,9 @@ class _WaitingScreenState extends State<WaitingScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 200.0),
+                      SizedBox(height: 350.0),
                       Text(
-                        'We are paring you up with the driver...',
+                        'There is no call at this moment!\n\nWe will pair you up with the user if there is any',
                         style: TextStyle(
                           color: Colors.purple,
                           fontFamily: 'OpenSans',

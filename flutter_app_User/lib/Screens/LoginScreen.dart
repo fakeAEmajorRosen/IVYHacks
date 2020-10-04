@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app/utilities/c.dart';
 import 'package:flutter_app/Screens/SelectScreen.dart';
 import 'package:flutter_app/Screens/SignUpScreen.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

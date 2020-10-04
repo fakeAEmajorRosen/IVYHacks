@@ -1,15 +1,17 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/Screens/EndScreen.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-class MapScreen extends StatefulWidget {
+import 'dart:async';
+import 'package:flutter_app_driver/Screens/MapScreen.dart';
+
+
+class DriverFoundScreen extends StatefulWidget {
   @override
-  _MapScreenState createState() => _MapScreenState();
+  _DriverFoundScreenState createState() => _DriverFoundScreenState();
 
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _DriverFoundScreenState extends State<DriverFoundScreen> {
+
 
   //////////////////////////////// time_lapse ////////////
   @override
@@ -20,16 +22,17 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 8);
+    var duration = new Duration(seconds: 2);
     return new Timer(duration, route);
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => EndScreen()
+        builder: (context) => MapScreen()
     )
     );
   }
 /////////////////////////////////////////////////////////////
+
 
   Widget _buildPhoneBtn() {
     return Container(
@@ -55,22 +58,22 @@ class _MapScreenState extends State<MapScreen> {
         color: Color(0xFFF3E5F5),
         child: RichText(
           text: TextSpan(
-              style: TextStyle(
-                color: Colors.black,
-                letterSpacing: 1.5,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'OpenSans',
-              ),
-              children: [
-                WidgetSpan(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: Icon(Icons.phone),
-                  ),
+            style: TextStyle(
+              color: Colors.black,
+              letterSpacing: 1.5,
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'OpenSans',
+            ),
+            children: [
+              WidgetSpan(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                  child: Icon(Icons.phone),
                 ),
-                TextSpan(text: 'Phone'),
-              ]
+              ),
+              TextSpan(text: 'Phone'),
+            ]
           ),
         ),
       ),
@@ -123,6 +126,17 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+
+  // Widget _buildDriverProfile() {
+  //   return Container(
+  //       padding: EdgeInsets.symmetric(vertical: 25.0),
+  //       width: double.infinity,
+  //       child:
+  //   );
+  // }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,7 +165,7 @@ class _MapScreenState extends State<MapScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Susan is on the way!',
+                        'User Found!\nAlex will be the user!',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
@@ -159,9 +173,43 @@ class _MapScreenState extends State<MapScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 380.0),
+                      SizedBox(height: 30.0),
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 25.0),
+                          width: 200.0,
+                          height: 200.0,
+
+                          // width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFD6D6D6),
+                              shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.purple,
+                              width: 2,
+                            ),
+                            // borderRadius: BorderRadius.circular(20),
+                          ),
+                      ),
+                      SizedBox(height: 10.0),
+                      Container(
+                        child: Text(
+                          'Alex',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            letterSpacing: 1.5,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'OpenSans',
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.0),
                       _buildPhoneBtn(),
-                      _buildVideoBtn()
+                      SizedBox(height: 3.0),
+                      _buildVideoBtn(),
+
+
 
                     ],
                   ),
@@ -173,4 +221,5 @@ class _MapScreenState extends State<MapScreen> {
       ),
     );
   }
+
 }

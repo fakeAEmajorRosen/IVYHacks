@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/Screens/EndScreen.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_app_driver/Screens/EndScreen.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
@@ -151,7 +151,7 @@ class _MapScreenState extends State<MapScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Susan is on the way!',
+                        'Guiding you to the user now......',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
